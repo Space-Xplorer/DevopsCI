@@ -1,0 +1,15 @@
+on:
+    push,pull_requests
+
+jobs:
+    test:
+        runs on ubuntu_linux
+    steps:
+        name: checkoutcode
+        uses: actions/checkoutcode@v5
+        name: pythonsetup
+        uses: setup_python@v4
+        name: installation
+        run: pip install pytest
+        name: running tests
+        run: pytest app.py
